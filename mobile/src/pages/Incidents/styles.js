@@ -71,5 +71,5 @@ export default StyleSheet.create ({
         color: '#E02041',
         fontSize: 15,
         fontWeight: 'bold'
-    }
+    },
 })
