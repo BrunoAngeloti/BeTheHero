@@ -3,10 +3,12 @@ const { create } = require('./IncidentController');
 
 module.exports = {
     async create(req, res){
-        const { id } = req.body
+        const { email, senha } = req.body
 
         const ong = await connection('ongs')
-            .where('id', id)
+            .where('email', email)
+            .where('senha', senha)
+            .select('id')
             .select('name')
             .first()
 

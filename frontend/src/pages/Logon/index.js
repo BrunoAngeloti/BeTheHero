@@ -10,21 +10,23 @@ import logoImg from '../../assets/logo.svg'
 import heroesImg from '../../assets/heroes.png'
 
 export default function Logon() {
-    const [id, setId] = useState('')
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
     const history = useHistory()
 
     async function handleLogin(e){
         e.preventDefault()
 
         try {
-            const response = await api.post('sessions', { id })
+            const response = await api.post('sessions', { email, senha })
 
-            localStorage.setItem('ongId', id)
+            localStorage.setItem('ongId', response.data.id)
             localStorage.setItem('ongName', response.data.name)
 
+            console.log(response.data.id)
             history.push('/profile')
         } catch (err){
-            alert('Este ID não existe! Tente novamente')
+            alert('Email ou senha errados')
         }
     }
 
@@ -35,9 +37,15 @@ export default function Logon() {
                 <form onSubmit={handleLogin}>
                     <h1>Faça seu logon</h1>
                     <input
-                        placeholder="Sua ID"
-                        value={id}
-                        onChange={e => setId(e.target.value)}
+                        placeholder="Email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    <input
+                        type="password"
+                        placeholder="Senha"
+                        value={senha}
+                        onChange={e => setSenha(e.target.value)}
                     />
                     <button className="button" type="submit">Entrar</button>
 

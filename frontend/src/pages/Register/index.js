@@ -13,6 +13,7 @@ export default function Register() {
     const [whatsapp, setWhatsapp] = useState('')
     const [city, setCity] = useState('')
     const [uf, setUf] = useState('')
+    const [senha, setSenha] = useState('')
 
     async function handleRegister(e) {
         e.preventDefault()
@@ -22,7 +23,8 @@ export default function Register() {
             email,
             whatsapp,
             city,
-            uf
+            uf,
+            senha
         }
 
         try{
@@ -70,6 +72,12 @@ export default function Register() {
                         placeholder="WhatsApp"
                         value={whatsapp}
                         onChange={ e => setWhatsapp(e.target.value)}
+                    />
+                    <input 
+                        type="password"
+                        placeholder="Senha"
+                        value={senha}
+                        onChange={ e => setSenha(e.target.value)}
                     />
 
                     <div className="input-group">

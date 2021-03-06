@@ -18,6 +18,14 @@
     margin-top: 100px;
 }
 
+.logon-container section.form form input{
+    margin-bottom: 10px;
+}
+
+.logon-container section.form form input:last-child{
+    margin-bottom: 0px;
+}
+
 .logon-container section.form form h1{
     font-size: 32px;
     margin-bottom: 32px;
